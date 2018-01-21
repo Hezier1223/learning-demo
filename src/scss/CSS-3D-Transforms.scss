@@ -1,0 +1,265 @@
+@import 'utils/initial';
+
+.tab-pane {
+    position: relative;
+    padding: 100px;
+    perspective: 1200px;
+}
+
+.box {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    background: lightseagreen;
+    z-index: 1;
+    opacity: .5;
+}
+
+.translate-z {
+    z-index: 2;
+    opacity: 1;
+    transform: translate3d(300px, 100px, 300px);
+}
+
+.rotate {
+    //transform: rotate3d(30, 30, 30, 30deg);
+    transform: rotateX(45deg);
+    z-index: 2;
+    opacity: 1;
+}
+
+.scale {
+    transform: scale(.4);
+}
+
+.skew {
+    transform: skew(30deg, 20deg);
+}
+
+.matrix {
+    transform: matrix(0.866, 0.5, -0.5, 0.866, 0, 0);
+}
+
+//
+//div {
+//    height: 300px;
+//    float: left;
+//    margin: 15px;
+//    position: relative;
+//    background: url(http://www.w3cplus.com/sites/default/files/blogs/2013/1311/bg.jpg) repeat center center;
+//    perspective: 1200px;
+//}
+//
+//.container {
+//    position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    transform-style: preserve-3d;
+//}
+//
+//.container img {
+//    position: absolute;
+//    margin-left: -35px;
+//    margin-top: -50px;
+//}
+//
+//.container img:nth-child(1) {
+//    z-index: 1;
+//    opacity: .6;
+//}
+//
+//.s1 img:nth-child(2) {
+//    z-index: 2;
+//    transform: translate3d(30px, 30px, 200px);
+//}
+
+.view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 500px;
+    //perspective: 00px;
+    background: #222;
+}
+
+.plane {
+    width: 120px;
+    height: 120px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.plane.main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-transform: rotateX(60deg) rotateZ(-30deg);
+    transform: rotateX(60deg) rotateZ(-30deg);
+    -webkit-animation: rotate 20s infinite linear;
+    animation: rotate 20s infinite linear;
+}
+
+.plane.main .circle {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    border-radius: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0 60px crimson, inset 0 0 60px crimson;
+    box-shadow: 0 0 60px crimson, inset 0 0 60px crimson;
+}
+
+.plane.main .circle::before,
+.plane.main .circle::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 10%;
+    height: 10%;
+    border-radius: 100%;
+    background: crimson;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 0 60px 2px crimson;
+    box-shadow: 0 0 60px 2px crimson;
+}
+
+.plane.main .circle::before {
+    -webkit-transform: translateZ(-90px);
+    transform: translateZ(-90px);
+}
+
+.plane.main .circle::after {
+    -webkit-transform: translateZ(90px);
+    transform: translateZ(90px);
+}
+
+.plane.main .circle:nth-child(1) {
+    -webkit-transform: rotateZ(72deg) rotateX(63.435deg);
+    transform: rotateZ(72deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(2) {
+    -webkit-transform: rotateZ(144deg) rotateX(63.435deg);
+    transform: rotateZ(144deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(3) {
+    -webkit-transform: rotateZ(216deg) rotateX(63.435deg);
+    transform: rotateZ(216deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(4) {
+    -webkit-transform: rotateZ(288deg) rotateX(63.435deg);
+    transform: rotateZ(288deg) rotateX(63.435deg);
+}
+
+.plane.main .circle:nth-child(5) {
+    -webkit-transform: rotateZ(360deg) rotateX(63.435deg);
+    transform: rotateZ(360deg) rotateX(63.435deg);
+}
+
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+    100% {
+        -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+
+
+#ul {
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    position: relative;
+    transform-style: preserve-3d;
+    // perspective: 400px;
+    perspective-origin: 0% 50%;
+    transform: rotateX(20deg) rotateY(60deg)
+}
+
+
+/*如果在ul里设置：-webkit-perspective:400px;-webkit-perspective-origin:0% 50%; 则会有透视、景深的效果*/
+
+li {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    text-align: center;
+    line-height: 200px;
+    font-size: 80px;
+    font-weight: bold;
+    color: #fff;
+    list-style: none;
+}
+
+li:nth-child(1) {
+    background: lightseagreen;
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+li:nth-child(2) {
+    background: lightskyblue;
+    transform: rotateX(270deg) translateZ(100px);
+}
+
+li:nth-child(3) {
+    background: lightpink;
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+li:nth-child(4) {
+    background: lightcoral;
+    transform: rotateY(270deg) translateZ(100px);
+}
+
+li:nth-child(5) {
+    background: lightgray;
+    transform: translateZ(-100px);
+}
+
+li:nth-child(6) {
+    background: lightsalmon;
+    transform: translateZ(100px);
+}
+
+
+/*****当执行下列css时，立方体无限自由旋转******/
+
+ul {
+    -webkit-animation: run 5s linear infinite;
+}
+
+@-webkit-keyframes run {
+    0% {
+        -webkit-transform: rotateX(0deg) rotateY(0deg)
+    }
+    100% {
+        -webkit-transform: rotateX(360deg) rotateY(360deg)
+    }
+}
+
+
+
+
